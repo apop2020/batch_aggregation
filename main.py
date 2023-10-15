@@ -26,5 +26,5 @@ if __name__=="__main__":
     spark.conf.set("mapreduce.fileoutputcommitter.marksuccessfuljobs", "false")
     spark.conf.set("spark.sql.sources.commitProtocolClass", "org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol")
     
-    final_df.write.mode("append").csv("/data/out/summary.csv")
+    final_df.write.mode("append").option("header",True).csv("/data/out/summary.csv")
     final_df.write.mode("append").parquet("/data/out/summary.parquet")
